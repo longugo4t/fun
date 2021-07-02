@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Index1</title>
+<meta charset="UTF-8" http-equiv="">
+<style>
+    form div{
+    margin-top: 10px;
+}
+form label.New{
+    float: left;
+    width: 120px;
+}
+form span.errornotice{color: red;}
+form input[type="text"].Required{
+    background-color: cyan;
+    width: 120px;
+    height: 25px;
+    border: 1px none;
+    border-radius: 1px;
+}
+form input[type="text"].Required:hover{
+   background-color: darkcyan;
+}
+form input[type=button] {
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+body {
+	
+background-repeat: no-repeat;
+background-image: url(https://mohinhliti.com/wp-content/uploads/2019/07/con-heo-mo-hinh-trang-tri.jpg) ;
+background-size: 50%;
+	
+}
+</style>
+</head>
+<body>
+    <form method="Post">
+        <div>
+            <label class="New"></label>
+            <input type="text" id="hoten" name="hoten" class="Required">
+            <span id="loi_hoten" class="errornotice"></span>
+        </div>
+        <div>
+            <label class="New"></label>
+            <input type="text" id="diachi" name="diachi" class="Required">
+            <span id="loi_diachi" class="errornotice"></span>
+        </div>
+        
+    <input type="button" onclick="javascript:chapnhan();" value="Chấp nhận" >
+    <input type="button" onclick="javascript:boqua();" value="Bấm vào đây">
+    </form>
+<script>
+    document.getElementById("hoten").onkeyup= function(e){
+    DoKeyup(e,this,'diachi');
+};
+function DoKeyup(e, myself, nextcontrolid) {
+	if (window.event) e = window.event; 
+	if (e.keyCode == 13) {
+		document.getElementById(nextcontrolid).focus();
+	}
+}
+function chapnhan(){
+    var checked=true;
+    document.getElementById("loi_hoten").innerHTML= "";
+    document.getElementById("loi_diachi").innerHTML="";
+if(document.getElementById("hoten").value ==""){
+    document.getElementById("loi_hoten").innerHTML = "Vũ Minh Hiếu là một con lợn, rich boy và ngu ngok";
+    document.getElementById("hoten").focus();
+    checked=false;
+}
+if(document.getElementById("diachi").value ==""){
+    document.getElementById("loi_diachi").innerHTML="Ngu si";
+    document.getElementById("diachi").focus();
+    checked=false;
+}
+}
+
+function boqua(){
+    confirm('Lo mà học hành đi, bêu xấu người khác có ngày pay acc');
+}
+</script>
+</body>
+</html>
